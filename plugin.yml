@@ -1,5 +1,7 @@
 name: MagicHealthDefense
-Autor: Pushkar
+Autor:
+- Pushkar (fuck)
+- Biswajit (Updete)
 main: Stats\Main
-api: 4.0.0
-version: 2
+api: 5.0.0
+version: 1.0.0
