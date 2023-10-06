@@ -12,16 +12,11 @@ class ActionbarTask extends Task
     {
         foreach (Main::getInstance()->getServer()->getOnlinePlayers() as $player) {
             if ($player instanceof MagicPlayer) {
-                $item = $player->getInventory()->getItemInHand();
-                $damage = $player->getDamage() + $item->getAttackPoints();
-                $defense = $player->getDefense() + $player->getArmorPoints();
-                $heal = $player->getHealth();
-                $maxheal = $player->getMaxHealth();
-
-                if ($heal > $maxheal) {
-                    $player->setHealth($maxheal);
-                }
-                $player->sendActionBarMessage("§cHealth: $heal" . "§7/§c$maxheal  §aDefense: §a$defense \n§4Damage: $damage  §bMana: 100 ");
+                $playerHealth = $player->getHealth();
+                $playerMaxHealth = $player->getMaxHealth();
+                $playerDefence = $player->getArmorPoints() * 5;
+                $playerMana = $playerDefence/20 * $playerHealth;
+                $player->sendActionBarMessage("§c❤ ".$playerHealth . "§7/§c" . $playerMaxHealth." §a".$playerDefence."§a Defence §b".$playerMana." Mana");
             }
         }
     }
